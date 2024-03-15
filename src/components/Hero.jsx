@@ -10,7 +10,7 @@ const Hero = () => {
           Revolutionizing student success
         </p>
         <h1 className='md:text-7xl sm:text-6xl text-4xl font-bold md:py-6'>
-            Navigate e-Learning Your Way.
+            Navigate e-Learning Your Way
         </h1>
         <div className='flex justify-center items-center'>
           <ReactTyped
@@ -21,7 +21,7 @@ const Hero = () => {
             loop
           />
         </div>
-        <p className='md:text-2xl text-xl font-bold text-gray-500 p-2 top-2'>From Campus to Cloud: Revolutionizing Student Learning.</p>
+        <p className='md:text-2xl text-xl font-bold text-gray-500 p-2 top-2'>From Campus to Cloud: Revolutionizing Student Learning!</p>
         <button className='bg-[#00df9a] w-[200px] rounded-md font-medium my-6 mx-auto py-3 text-black'>Get Started</button>
       </div>
     </div>

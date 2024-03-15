@@ -21,7 +21,13 @@ const Navbar = () => {
                         Home
             </NavLink>
         </li>
-        <li className='p-4'>Company</li>
+        <li className='p-4'>
+            <NavLink to='/company' 
+            className={({isActive})=> `block duration-200 border-b border-gray-700 
+                        ${isActive ? "text-[#00df9a]" : "text-gray-300" } lg:border-0 hover:text-[#00df9a] lg:p-0`}>
+                Company
+            </NavLink>
+        </li>
         <li className='p-4'>Resources</li>
         <li className='p-4'>About</li>
         <li className='p-4'>Contact</li>
