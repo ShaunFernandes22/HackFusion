@@ -26,4 +26,8 @@ const meetingSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("Meeting", meetingSchema);
+const Meeting = mongoose.model("Meeting", meetingSchema);
+
+module.exports = {
+  Meeting
+};
