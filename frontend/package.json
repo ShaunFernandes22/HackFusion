@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@zegocloud/zego-uikit-prebuilt": "^2.0.0",
+    "@zegocloud/zego-uikit-prebuilt-live-streaming-rn": "^2.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^5.0.1",
