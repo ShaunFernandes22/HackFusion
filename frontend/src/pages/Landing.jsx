@@ -1,16 +1,21 @@
-import React from 'react'
-import Navbar from '../components/Navbar'
-import Hero from '../components/Hero'
-import Footer from '../components/Footer'
-
+import React from "react";
+import Header from "../components/landing-page/Header";
+import HeroSection from "../components/landing-page/HeroSection";
+import FeatureSection from "../components/landing-page/FeatureSection";
+import ContactSection from "../components/landing-page/ContactSection";
+import Footer from "../components/landing-page/Footer";
+import TestimonialSection from "../components/landing-page/TestimonialSection";
 const Landing = () => {
   return (
-    <>
-        <Navbar/>
-        <Hero/>
-        <Footer/>
-    </>
-  )
-}
+    <div >
+      <Header />
+      <HeroSection />
+      <FeatureSection />
+      {/* <TestimonialSection /> */}
+      <ContactSection />
+      <Footer />
+    </div>
+  );
+};
 
-export default Landing
+export default Landing;
