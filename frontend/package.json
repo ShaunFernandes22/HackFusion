@@ -15,6 +15,7 @@
     "@emotion/styled": "^11.11.0",
     "@zegocloud/zego-uikit-prebuilt": "^2.0.0",
     "@zegocloud/zego-uikit-prebuilt-live-streaming-rn": "^2.2.1",
+    "aos": "^2.3.4",
     "axios": "^1.6.8",
     "chart.js": "^4.4.2",
     "framer-motion": "^11.0.14",
