@@ -1,19 +1,23 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Landing from "./pages/Landing";
 import MeetIDForm from "./components/MeetIDForm";
 import RoomPage from "./pages/room/RoomPage";
 import Signup from "./pages/signup/Signup";
 import Signin from "./pages/signin/Signin";
-import "./App.css";
 import Charts from "./components/Charts";
-import { useState } from "react";
 import RequiresAuth from "./components/RequiresAuth";
+import { AuthContext } from "./main";
+import { useContext } from "react";
 
+import "./App.css";
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
   const handleLogin = () => {
     setIsLoggedIn(!isLoggedIn);
+    navigate(location?.state?.from?.pathname);
   };
   return (
     <div className="app">
@@ -34,13 +38,20 @@ function App() {
         <Route
           path="/meeting"
           element={
-            <RequiresAuth isLoggedIn={isLoggedIn}>
+            <RequiresAuth>
               <MeetIDForm />
             </RequiresAuth>
           }
         />
         <Route path="/room/:roomId" element={<RoomPage />} />
-        <Route path="/analytics" element={<Charts />} />
+        <Route
+          path="/analytics"
+          element={
+            <RequiresAuth>
+              <Charts />
+            </RequiresAuth>
+          }
+        />
         <Route path="/signup" element={<Signup />} />
         <Route path="/signin" element={<Signin />} />
       </Routes>

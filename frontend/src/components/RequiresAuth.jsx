@@ -1,7 +1,16 @@
-import { Navigate } from "react-router";
+import { Navigate, useLocation } from "react-router";
 import React from "react";
-const RequiresAuth = ({ children, isLoggedIn }) => {
-  return isLoggedIn ? children : <Navigate to="/signin" />;
+import { useContext } from "react";
+import { AuthContext } from "../main";
+
+const RequiresAuth = ({ children}) => {
+  let location = useLocation();
+  const { isLoggedIn } = useContext(AuthContext);
+  return isLoggedIn ? (
+    children
+  ) : (
+    <Navigate to="/signin" state={{ from: location }} />
+  );
 };
 
 export default RequiresAuth;
