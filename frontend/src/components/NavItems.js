@@ -15,8 +15,8 @@ const menuItems = [
     cName: "nav-links",
   },
   {
-    title: "Contact",
-    path: "/contact",
+    title: "Analytics",
+    path: "/analytics",
     cName: "nav-links",
   },
 ];

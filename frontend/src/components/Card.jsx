@@ -1,5 +1,4 @@
 import React from 'react';
-import BarGraph from './charts/BarGraph';
 
 const Card = ({children}) => {
   return (
