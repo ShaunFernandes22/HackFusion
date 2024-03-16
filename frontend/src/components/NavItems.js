@@ -11,7 +11,7 @@ const menuItems = [
   },
   {
     title: "Login",
-    path: "/login",
+    path: "/signin",
     cName: "nav-links",
   },
   {
