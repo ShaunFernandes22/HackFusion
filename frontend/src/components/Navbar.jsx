@@ -13,7 +13,9 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <NavLink to="/" className="navbar-logo">
-      <h1 className='w-full text-3xl font-bold italic text-[#000000]'>EduQuest</h1>
+        <h1 className="w-full text-3xl font-bold italic text-[#000000]">
+          EduQuest
+        </h1>
       </NavLink>
       <div className="menu-icon" onClick={handleClick}>
         <i className={active ? "fas fa-times" : "fas fa-bars"}></i>
