@@ -7,7 +7,6 @@ import About from "./About";
 const Landing = () => {
   return (
     <>
-      <Navbar />
       <Hero />
       <Footer />
     </>
