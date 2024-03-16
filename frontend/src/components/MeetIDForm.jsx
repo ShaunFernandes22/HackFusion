@@ -1,7 +1,7 @@
 import React, {useCallback, useState} from 'react'
 import { useNavigate } from 'react-router-dom'
 
-const Form = () => {
+const MeetIDForm = () => {
     const [roomCode, setRoomCode] = useState('')
     const navigate = useNavigate();
 
@@ -31,7 +31,7 @@ const Form = () => {
     </div>
     <div className="flex items-center justify-center">
       <button
-        className="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+        className="w-full bg-[#00df9a] hover:bg-[#48b190] text-white hover:text-[#000300] font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
         type="submit"
       >
         Enter Room
@@ -44,4 +44,4 @@ const Form = () => {
   )
 }
 
-export default Form
+export default MeetIDForm
