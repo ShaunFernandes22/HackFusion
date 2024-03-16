@@ -8,10 +8,10 @@ const RoomPage = () => {
 
    
     const userId = Date.now().toString();
-    const userName = "sachin"
+    const userName = "Sachin Tendulkar"
     const myMeeting = useCallback (async (element) => {
-        const appId = 1568361024;
-        const serverSecret = '2591024f1ebf436b3aa07a8d86a2e518';
+        const appId = Number(import.meta.env.VITE_APPID);
+        const serverSecret = import.meta.env.VITE_SECRET_SERVER;
         const kitToken = ZegoUIKitPrebuilt.generateKitTokenForTest(appId, serverSecret, roomId, userId, userName);
         const zg = ZegoUIKitPrebuilt.create(kitToken);
         zg.joinRoom({
