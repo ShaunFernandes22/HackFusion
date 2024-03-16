@@ -1,14 +1,14 @@
-import React, {useState} from 'react'
+import React, {useCallback, useState} from 'react'
 import { useNavigate } from 'react-router-dom'
 
 const Form = () => {
     const [roomCode, setRoomCode] = useState('')
     const navigate = useNavigate();
 
-    const handleFormSubmit = (ev) =>{
+    const handleFormSubmit = useCallback((ev) =>{
         ev.preventDefault();
         navigate(`/room/${roomCode}`);
-    }
+    }, [navigate, roomCode]);
 
   return (
     <div className="w-full max-w-xs m-auto p-5">
