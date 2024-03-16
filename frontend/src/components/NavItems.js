@@ -5,6 +5,11 @@ const menuItems = [
     cName: "nav-links",
   },
   {
+    title: "Analytics",
+    path: "/analytics",
+    cName: "nav-links",
+  },
+  {
     title: "Signup",
     path: "/signup",
     cName: "nav-links",
@@ -12,11 +17,6 @@ const menuItems = [
   {
     title: "Login",
     path: "/signin",
-    cName: "nav-links",
-  },
-  {
-    title: "Contact",
-    path: "/contact",
     cName: "nav-links",
   },
 ];
