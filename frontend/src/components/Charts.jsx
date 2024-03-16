@@ -2,6 +2,7 @@ import React from 'react';
 import Card from './Card';
 import BarGraph from './charts/BarGraph';
 import LineGraph from './charts/LineGraph';
+import DoughnutChart from './charts/PieChart';
 
 const Charts = () => {
   return (
@@ -9,6 +10,7 @@ const Charts = () => {
       <div className='max-w-[1400px] mx-auto grid md:grid-cols-3 gap-8'>
         <Card> <BarGraph/> </Card>
         <Card> <LineGraph/> </Card>
+        <Card> <DoughnutChart/> </Card>
       </div>
     </div>
   );
