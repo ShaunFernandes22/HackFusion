@@ -5,15 +5,64 @@ import { InputBox } from "../../components/InputBox";
 import { SubHeading } from "../../components/SubHeading";
 import { SelectBox } from "../../components/SelectBox";
 import { PasswordBox } from "../../components/PasswordBox";
+import { useToast } from "@chakra-ui/react";
 import React from "react";
 import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [role, setRole] = useState("student");
+  const toast = useToast();
+  const navigate = useNavigate();
+  const handleSignup = async () => {
+    const loadingToast = toast({
+      title: "Loading",
+      description: "Signing in...",
+      status: "info",
+      duration: 2000,
+      isClosable: true,
+    });
+
+    setTimeout(async () => {
+      try {
+        const response = await axios.post(
+          "http://localhost:3000/api/v1/user/signup",
+          {
+            name: name,
+            email: email,
+            password: password,
+            role: role,
+          }
+        );
+
+        localStorage.setItem("token", response.data.token);
+        toast.close(loadingToast);
+        toast({
+          title: "Signed in",
+          description: "You have successfully signed up!",
+          status: "success",
+          duration: 3000,
+          isClosable: true,
+        });
+
+        navigate("/");
+      } catch (error) {
+        toast.close(loadingToast);
+        toast({
+          title: "Error",
+          description: "Please enter valid inputs (check email)",
+          status: "error",
+          duration: 3000,
+          isClosable: true,
+        });
+      }
+    }, 2000);
+  };
+
   return (
     <div className="bg-black h-screen flex justify-center">
       <div className="flex flex-col justify-center">
@@ -49,20 +98,7 @@ const Signup = () => {
           />
 
           <div className="pt-4">
-            <Button
-              label={"Sign up"}
-              onClick={async () => {
-                const response = await axios.post(
-                  "http://localhost:3000/api/v1/user/signup",
-                  {
-                    name: name,
-                    email: email,
-                    password: password,
-                  }
-                );
-                localStorage.setItem("token", response.data.token);
-              }}
-            />
+            <Button label={"Sign up"} onClick={handleSignup} />
           </div>
           <BottomWarning
             label={"Already have an account?"}
