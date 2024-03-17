@@ -36,45 +36,42 @@ const theme = createTheme({
 
 const Table3 = () => {
 
-    
-const columns = [
+  const columns = [
     {
       name: "id",
       label: "ID", 
       options: {
         filter: true,
         sort: true,
-        
       }
     },
     {
-     name: "name",
-     label: "Name",
-     options: {
-      filter: true,
-      sort: true,
-     }
+      name: "name",
+      label: "Name",
+      options: {
+        filter: true,
+        sort: true,
+      }
     },
     {
-     name: "role",
-     label: "Role",
-     options: {
-      filter: true,
-      sort: false,
-     }
+      name: "role",
+      label: "Role",
+      options: {
+        filter: true,
+        sort: false,
+      }
     },
     {
-     name: "status",
-     label: "Status",
-     options: {
-      filter: true,
-      sort: false,
-     }
+      name: "status",
+      label: "Status",
+      options: {
+        filter: true,
+        sort: false,
+      }
     },
-  
-   ];
+  ]
 
-   const data = [
+  const data = [
     {
       id: 1,
       name: "Sudhir Bagul",
@@ -93,7 +90,6 @@ const columns = [
       role: "Student",
       status: "Boredom",
     },
-
     {
       id: 4,
       name: "Akshay Kamath",
@@ -138,59 +134,24 @@ const columns = [
     },
   ];
 
-   const options = {
+  const options = {
     filterType: 'checkbox',
     rowsPerPage: 5,
     rowsPerPageOptions: [5, 10, 15, 20]
   };
 
-  const getMuiTheme = () => {
-    createTheme({
-      typography : {
-        fontFamily: "Poppins",
-      }, 
-      palette: {
-        background: {
-          paper: "#1e293b",
-          default: "#0f172a",
-        },
-        mode: "dark",
-      },
-      components: {
-        MuiTableCell: {
-          styleOverrides: {
-            head: {
-              padding: "10px 4px"
-            },
-            body: {
-              padding: "7px 15px",
-              color: "#e2e8f0"
-            }
-          }
-        }
-      }
-    })
-  }
-
   return (
     <div className='py-2 w-full grid place-items-center'>
-    <div className='w-4/5'>
-
-
-      <ThemeProvider theme={theme}>
-    
-
-   
-    <MUIDataTable
-        title={"Users List"}
-        data={data}
-  columns={columns}
-  options={options}
-/>
-    </ThemeProvider>
-    </div>
+      <div className='w-4/5'>
+        <ThemeProvider theme={theme}>
+          <MUIDataTable
+            title={"Users List"}
+            data={data}
+            columns={columns}
+            options={options}/>
+        </ThemeProvider>
+      </div>
     </div>
   )
 }
-
 export default Table3
