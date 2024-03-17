@@ -1,4 +1,4 @@
-import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Landing from "./pages/Landing";
 import MeetIDForm from "./components/MeetIDForm";
@@ -8,6 +8,7 @@ import Signin from "./pages/signin/Signin";
 import DashBoard from "./pages/DashBoard";
 import RequiresAuth from "./components/RequiresAuth";
 import GenerateMeet from "./components/GenerateMeet";
+import ErrorPage from "./pages/ErrorPage";
 import "./App.css";
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
         <Route path="/generate-meet" element={<GenerateMeet />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/signin" element={<Signin />} />
+        <Route path="/*" element={<ErrorPage />} />
       </Routes>
     </div>
   );
