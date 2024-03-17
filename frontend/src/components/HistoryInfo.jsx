@@ -6,7 +6,7 @@ import MultiBarGraph from './charts/MultiBarGraph'
 
 const HistoryInfo = () => {
   return (
-    <div className="w-full h-full py-2 px-4">
+    <div className="w-full min-height-screen py-2 px-4">
         <div className="max-w-[1400px] mx-auto grid md:grid-cols-3 gap-8">
             <GraphCard>
               <MultiLineGraph/>
