@@ -96,6 +96,53 @@ const Table2 = () => {
     });
     setRecords(filterData);
   };
+
+  const tableStyles = {
+    width: '82vw',
+    height: '90vh',
+    backgroundColor: 'rgba(255, 255, 255, 0.95)',
+    backdropFilter: 'blur(7px)',
+    boxShadow: '0 .4rem .8rem rgba(0, 0, 0, 0.2)',
+    borderRadius: '.8rem',
+    overflow: 'hidden',
+  };
+
+  const headerStyles = {
+    width: '100%',
+    height: '10%',
+    backgroundColor: 'rgba(255, 255, 255, 0.8)',
+    padding: '.8rem 1rem',
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  };
+
+  const inputGroupStyles = {
+    width: '35%',
+    height: '100%',
+    backgroundColor: 'rgba(255, 255, 255, 0.9)',
+    padding: '0 .8rem',
+    borderRadius: '2rem',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    transition: '.2s',
+  };
+
+  const inputGroupHoverStyles = {
+    width: '45%',
+    backgroundColor: 'rgba(255, 255, 255, 0.95)',
+    boxShadow: '0 .1rem .4rem rgba(0, 0, 0, 0.05)',
+  };
+
+  const inputStyles = {
+    width: '100%',
+    padding: '0 .5rem 0 .3rem',
+    backgroundColor: 'transparent',
+    border: 'none',
+    outline: 'none',
+  };
+
   return (
     <div className="container mt-5">
       <div className="text-end">
@@ -108,6 +155,11 @@ const Table2 = () => {
         fixedHeader
         pagination
         paginationPerPage={6}
+        highlightOnHover
+        striped
+        dense
+        responsive
+        noHeader
       />
     </div>
   );
