@@ -18,7 +18,8 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [role, setRole] = useState("student");
-  const { token, setToken } = useContext(AuthContext);
+  const { setToken } = useContext(AuthContext);
+  const { setUser } = useContext(AuthContext);
   const toast = useToast();
   const navigate = useNavigate();
   const handleSignup = async () => {
@@ -44,6 +45,7 @@ const Signup = () => {
 
         localStorage.setItem("token", response.data.token);
         setToken(response.data.token);
+        setUser(response.data.user);
         toast.close(loadingToast);
         toast({
           title: "Signed in",
@@ -65,7 +67,6 @@ const Signup = () => {
         });
       }
     }, 2000);
-    console.log(token);
   };
 
   return (

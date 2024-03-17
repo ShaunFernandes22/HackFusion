@@ -7,6 +7,7 @@ import { useEffect } from "react";
 export const AuthProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [token, setToken] = useState(localStorage.getItem("token") || "");
+  const [user, setUser] = useState(null);
   const toast = useToast();
   useEffect(() => {
     setIsLoggedIn(!!token);
@@ -38,7 +39,15 @@ export const AuthProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ isLoggedIn, setIsLoggedIn, token, setToken, handleLogout }}
+      value={{
+        isLoggedIn,
+        setIsLoggedIn,
+        token,
+        setToken,
+        handleLogout,
+        user,
+        setUser,
+      }}
     >
       {children}
     </AuthContext.Provider>

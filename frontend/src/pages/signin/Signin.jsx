@@ -14,6 +14,7 @@ const Signin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { setToken } = useContext(AuthContext);
+  const { setUser } = useContext(AuthContext);
   const navigate = useNavigate();
   const toast = useToast();
 
@@ -26,38 +27,40 @@ const Signin = () => {
       isClosable: true,
     });
 
-    try {
-      const response = await axios.post(
-        "http://localhost:3000/api/v1/user/signin",
-        {
-          email: email,
-          password: password,
-        }
-      );
+    setTimeout(async () => {
+      try {
+        const response = await axios.post(
+          "http://localhost:3000/api/v1/user/signin",
+          {
+            email: email,
+            password: password,
+          }
+        );
 
-      localStorage.setItem("token", response.data.token);
-      setToken(response.data.token);
-      toast.close(loadingToast);
+        localStorage.setItem("token", response.data.token);
+        setToken(response.data.token);
+        setUser(response.data.user);
+        toast.close(loadingToast);
+        toast({
+          title: "Signed in",
+          description: "You have successfully signed in!",
+          status: "success",
+          duration: 3000,
+          isClosable: true,
+        });
 
-      toast({
-        title: "Signed in",
-        description: "You have successfully signed up!",
-        status: "success",
-        duration: 3000,
-        isClosable: true,
-      });
-
-      navigate("/");
-    } catch (error) {
-      toast.close(loadingToast);
-      toast({
-        title: "Error",
-        description: "Please enter valid inputs (check email/password)",
-        status: "error",
-        duration: 3000,
-        isClosable: true,
-      });
-    }
+        navigate("/");
+      } catch (error) {
+        toast.close(loadingToast);
+        toast({
+          title: "Error",
+          description: "Please enter valid inputs (check email/password)",
+          status: "error",
+          duration: 3000,
+          isClosable: true,
+        });
+      }
+    }, 2000);
   };
 
   return (

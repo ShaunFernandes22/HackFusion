@@ -7,8 +7,8 @@ import Signup from "./pages/signup/Signup";
 import Signin from "./pages/signin/Signin";
 import DashBoard from "./pages/DashBoard";
 import RequiresAuth from "./components/RequiresAuth";
-
 import "./App.css";
+
 function App() {
   return (
     <div className="app">
