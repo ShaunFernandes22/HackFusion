@@ -3,11 +3,14 @@ import React from "react";
 const OperateFlow = () => {
   return (
     <div>
-      <h1 className=" sm:text-6xl text-4xl font-bold md:py-6 text-white flex justify-center items-center mb-24 -ml-80">
+      <h2 className="text-3xl  text-[#00df9a] font-bold md:py-6  flex justify-center items-center mb-24 -ml-60 ">
         How do we operate
-      </h1>
+      </h2>
 
-      <div className=" h-96 steps-path w-full ml-13 mb-40 flex justify-center items-center" data-aos="fade">
+      <div
+        className=" h-96 steps-path w-full ml-30 mb-40 flex justify-center items-center"
+        data-aos="fade"
+      >
         <svg viewBox="0 0 1000 400" id="stepPath">
           <path
             className="steps "
