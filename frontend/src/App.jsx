@@ -5,7 +5,7 @@ import MeetIDForm from "./components/MeetIDForm";
 import RoomPage from "./pages/room/RoomPage";
 import Signup from "./pages/signup/Signup";
 import Signin from "./pages/signin/Signin";
-import Charts from "./components/Charts";
+import DashBoard from "./pages/DashBoard";
 import RequiresAuth from "./components/RequiresAuth";
 import { AuthContext } from "./main";
 import { useContext } from "react";
@@ -39,7 +39,7 @@ function App() {
           path="/analytics"
           element={
             <RequiresAuth>
-              <Charts />
+              <DashBoard />
             </RequiresAuth>
           }
         />

@@ -1,5 +1,5 @@
 import React from "react";
-import Card from "./Card";
+import GraphCard from "./GraphCard";
 import BarGraph from "./charts/BarGraph";
 import LineGraph from "./charts/LineGraph";
 import DoughnutChart from "./charts/PieChart";
@@ -8,15 +8,15 @@ const Charts = () => {
   return (
     <div className="w-full h-full py-2 px-4">
       <div className="max-w-[1400px] mx-auto grid md:grid-cols-3 gap-8">
-        <Card>
+        <GraphCard>
           <BarGraph />
-        </Card>
-        <Card>
+        </GraphCard>
+        <GraphCard>
           <LineGraph />
-        </Card>
-        <Card>
+        </GraphCard>
+        <GraphCard>
           <DoughnutChart />
-        </Card>
+        </GraphCard>
       </div>
     </div>
   );
