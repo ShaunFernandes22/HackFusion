@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
-import menuItems from "./NavItems";
+import NavItems from "./NavItems";
 import "./Navbar.css";
+import { AuthContext } from "../main";
 
 const Navbar = () => {
   const [active, setActive] = useState(false);
-
+  const {handleLogout}=useContext(AuthContext)
   const handleClick = () => {
     setActive(!active);
   };
@@ -21,11 +22,12 @@ const Navbar = () => {
         <i className={active ? "fas fa-times" : "fas fa-bars"}></i>
       </div>
       <ul className={active ? "nav-menu active" : "nav-menu"}>
-        {menuItems.map((item, index) => {
+        {NavItems().map((item, index) => {
           return (
             <li key={index}>
-              <NavLink to={item.path} className={item.cName}>
+              <NavLink to={item.path} className={item.cName} onClick={item.title === "Logout" ? handleLogout : null}>
                 {item.title}
+            
               </NavLink>
             </li>
           );

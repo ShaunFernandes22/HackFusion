@@ -8,13 +8,15 @@ import { SubHeading } from "../../components/SubHeading";
 import { PasswordBox } from "../../components/PasswordBox";
 import { BottomWarning } from "../../components/BottomWarning";
 import axios from "axios";
+import { AuthContext } from "../../main";
+import { useContext, useEffect } from "react";
 const Signin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { token, setToken } = useContext(AuthContext);
   const navigate = useNavigate();
   const toast = useToast();
-  console.log(email);
-  console.log(password);
+
   const handleSignin = async () => {
     const loadingToast = toast({
       title: "Loading",
@@ -24,38 +26,39 @@ const Signin = () => {
       isClosable: true,
     });
 
-    setTimeout(async () => {
-      try {
-        const response = await axios.post(
-          "http://localhost:3000/api/v1/user/signin",
-          {
-            email: email,
-            password: password,
-          }
-        );
+    try {
+      const response = await axios.post(
+        "http://localhost:3000/api/v1/user/signin",
+        {
+          email: email,
+          password: password,
+        }
+      );
 
-        localStorage.setItem("token", response.data.token);
-        toast.close(loadingToast);
-        toast({
-          title: "Signed in",
-          description: "You have successfully signed up!",
-          status: "success",
-          duration: 3000,
-          isClosable: true,
-        });
+      localStorage.setItem("token", response.data.token);
+      setToken(response.data.token);
+      toast.close(loadingToast);
 
-        navigate("/");
-      } catch (error) {
-        toast.close(loadingToast);
-        toast({
-          title: "Error",
-          description: "Please enter valid inputs (check email/password)",
-          status: "error",
-          duration: 3000,
-          isClosable: true,
-        });
-      }
-    }, 2000);
+      toast({
+        title: "Signed in",
+        description: "You have successfully signed up!",
+        status: "success",
+        duration: 3000,
+        isClosable: true,
+      });
+
+      navigate("/");
+      console.log("token ", token);
+    } catch (error) {
+      toast.close(loadingToast);
+      toast({
+        title: "Error",
+        description: "Please enter valid inputs (check email/password)",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+      });
+    }
   };
 
   return (

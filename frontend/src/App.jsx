@@ -18,21 +18,12 @@ function App() {
   const handleLogin = () => {
     setIsLoggedIn(!isLoggedIn);
     navigate(location?.state?.from?.pathname);
+    localStorage.setItem("token","")
   };
   return (
     <div className="app">
       <Navbar />
-      <button
-        style={{
-          color: "red",
-          backgroundColor: "white",
-          padding: "4px",
-          borderRadius: "4px",
-        }}
-        onClick={handleLogin}
-      >
-        {isLoggedIn ? "Logout" : "Login"}
-      </button>
+    
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route
