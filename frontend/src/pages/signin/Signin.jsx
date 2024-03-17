@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useToast } from "@chakra-ui/react";
 import { Button } from "../../components/Button";
 import { Heading } from "../../components/Heading";
@@ -13,7 +13,7 @@ import { useContext, useEffect } from "react";
 const Signin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { token, setToken } = useContext(AuthContext);
+  const { setToken } = useContext(AuthContext);
   const navigate = useNavigate();
   const toast = useToast();
 
@@ -48,7 +48,6 @@ const Signin = () => {
       });
 
       navigate("/");
-      console.log("token ", token);
     } catch (error) {
       toast.close(loadingToast);
       toast({

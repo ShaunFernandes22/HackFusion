@@ -7,23 +7,12 @@ import Signup from "./pages/signup/Signup";
 import Signin from "./pages/signin/Signin";
 import DashBoard from "./pages/DashBoard";
 import RequiresAuth from "./components/RequiresAuth";
-import { AuthContext } from "./main";
-import { useContext } from "react";
 
 import "./App.css";
 function App() {
-  const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
-  const navigate = useNavigate();
-  const location = useLocation();
-  const handleLogin = () => {
-    setIsLoggedIn(!isLoggedIn);
-    navigate(location?.state?.from?.pathname);
-    localStorage.setItem("token","")
-  };
   return (
     <div className="app">
       <Navbar />
-    
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route
