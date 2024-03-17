@@ -3,7 +3,7 @@ import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 const Features = () => {
   return (
-    <section className="features-section bg-black py-12">
+    <section className="features-section bg-black py-12 -mt-55">
       <style>
         {`
           .feature-enter {
@@ -70,31 +70,44 @@ const Features = () => {
       <div className="container mx-auto text-center">
         <h2 className="text-3xl font-bold mb-6 text-[#00df9a]">Key Features</h2>
         <div className="grid grid-cols-1 gap-8">
-          {/* Feature 1 */}
           <TransitionGroup>
             <CSSTransition timeout={500} classNames="feature">
               <div className="feature-card">
                 <div>
                   <h3>Real Time Analysis of Student Engagement</h3>
-                  <p>We will track student engagement and interest levels to tailor instructional strategies and support interventions.</p>
+                  <p>
+                    We will track student engagement and interest levels to
+                    tailor instructional strategies and support interventions.
+                  </p>
                 </div>
-                <img src="./website-3483020_1280.png" alt="Feature 1" className="feature-image" />
+                <img
+                  src="./website-3483020_1280.png"
+                  alt="Feature 1"
+                  className="feature-image"
+                />
               </div>
             </CSSTransition>
           </TransitionGroup>
-          {/* Feature 2 */}
+
           <TransitionGroup>
             <CSSTransition timeout={500} classNames="feature">
               <div className="feature-card">
                 <div>
                   <h3>Live Virtual Classroom</h3>
-                  <p>Interactive real-time collaboration and interaction with a live virtual classroom feature.</p>
+                  <p>
+                    Interactive real-time collaboration and interaction with a
+                    live virtual classroom feature.
+                  </p>
                 </div>
-                <img src="./video-conference-5352757_1280.png" alt="Feature 2" className="feature-image" />
+                <img
+                  src="./video-conference-5352757_1280.png"
+                  alt="Feature 2"
+                  className="feature-image"
+                />
               </div>
             </CSSTransition>
           </TransitionGroup>
-          {/* Feature 3 */}
+
           <TransitionGroup>
             <CSSTransition timeout={500} classNames="feature">
               <div className="feature-card">
@@ -102,7 +115,11 @@ const Features = () => {
                   <h3>Record of Student Data from previous lectures</h3>
                   <p>Comprehensive analysis of overall student data.</p>
                 </div>
-                <img src="./charts-6246450_1280.png" alt="Feature 3" className="feature-image" />
+                <img
+                  src="./charts-6246450_1280.png"
+                  alt="Feature 3"
+                  className="feature-image"
+                />
               </div>
             </CSSTransition>
           </TransitionGroup>
@@ -113,5 +130,3 @@ const Features = () => {
 };
 
 export default Features;
-
-
