@@ -36,7 +36,7 @@ userRouter.post("/signup", async (req, res) => {
     const token = jwt.sign({ userId: savedUser._id }, JWT_SECRET);
     return res
       .status(201)
-      .json({ message: "User created successfully", token });
+      .json({ message: "User created successfully", user: savedUser, token });
   } catch (error) {
     console.error(error);
     return res.status(500).json({ error: "Internal Server Error" });
@@ -61,7 +61,9 @@ userRouter.post("/signin", async (req, res) => {
     const validUser = await existingUser.validatePassword(data.password);
     if (validUser) {
       const token = jwt.sign({ userId: validUser._id }, JWT_SECRET);
-      return res.status(200).json({ message: "User logged in", token });
+      return res
+        .status(200)
+        .json({ message: "User logged in", user: existingUser, token });
     } else {
       return res.status(401).json({ message: "Incorrect password" });
     }

@@ -10,12 +10,16 @@ import React from "react";
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../main";
+import { useContext } from "react";
 
 const Signup = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [role, setRole] = useState("student");
+  const { setToken } = useContext(AuthContext);
+  const { setUser } = useContext(AuthContext);
   const toast = useToast();
   const navigate = useNavigate();
   const handleSignup = async () => {
@@ -40,6 +44,8 @@ const Signup = () => {
         );
 
         localStorage.setItem("token", response.data.token);
+        setToken(response.data.token);
+        setUser(response.data.user);
         toast.close(loadingToast);
         toast({
           title: "Signed in",

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useToast } from "@chakra-ui/react";
 import { Button } from "../../components/Button";
 import { Heading } from "../../components/Heading";
@@ -8,13 +8,16 @@ import { SubHeading } from "../../components/SubHeading";
 import { PasswordBox } from "../../components/PasswordBox";
 import { BottomWarning } from "../../components/BottomWarning";
 import axios from "axios";
+import { AuthContext } from "../../main";
+import { useContext, useEffect } from "react";
 const Signin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { setToken } = useContext(AuthContext);
+  const { setUser } = useContext(AuthContext);
   const navigate = useNavigate();
   const toast = useToast();
-  console.log(email);
-  console.log(password);
+
   const handleSignin = async () => {
     const loadingToast = toast({
       title: "Loading",
@@ -35,10 +38,12 @@ const Signin = () => {
         );
 
         localStorage.setItem("token", response.data.token);
+        setToken(response.data.token);
+        setUser(response.data.user);
         toast.close(loadingToast);
         toast({
           title: "Signed in",
-          description: "You have successfully signed up!",
+          description: "You have successfully signed in!",
           status: "success",
           duration: 3000,
           isClosable: true,

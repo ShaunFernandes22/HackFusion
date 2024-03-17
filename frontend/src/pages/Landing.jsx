@@ -5,7 +5,7 @@ import "./Landing.css";
 import Aos from "aos";
 import { useEffect } from "react";
 import OperateFlow from "../components/OperateFlow";
-
+import Features from "../components/Features";
 
 const Landing = () => {
   useEffect(() => {
@@ -15,7 +15,9 @@ const Landing = () => {
   return (
     <>
       <Hero />
+      {/* <Features /> */}
       <OperateFlow />
+
       <Footer />
     </>
   );
