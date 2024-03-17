@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Card = ({children}) => {
+const GraphCard = ({children}) => {
   return (
     <div className='w-full flex flex-col p-4 my-4 rounded-lg hover:scale-105 duration-300'>
         {children}
@@ -8,4 +8,4 @@ const Card = ({children}) => {
   );
 };
 
-export default Card;
+export default GraphCard;
