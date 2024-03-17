@@ -2,6 +2,7 @@ import React from 'react'
 import HistoryInfo from '../components/HistoryInfo'
 import { DataTable } from "../components/Table";
 import Table2 from "../components/Table2";
+import Table3 from '../components/Table3';
 
 const DashBoard = () => {
   return (
@@ -9,7 +10,7 @@ const DashBoard = () => {
         <HistoryInfo/>
         {/* <Tables/> */}
         {/* <DataTable /> */}
-        <Table2 />
+        <Table3/>
     </>
   );
 };
