@@ -2,7 +2,7 @@ import React from "react";
 import GraphCard from "./GraphCard";
 import BarGraph from "./charts/BarGraph";
 import LineGraph from "./charts/LineGraph";
-import DoughnutChart from "./charts/PieChart";
+import EmojiCard from "./EmojiCard";
 
 const Charts = () => {
   return (
@@ -11,11 +11,13 @@ const Charts = () => {
         <GraphCard>
           <BarGraph />
         </GraphCard>
+
         <GraphCard>
           <LineGraph />
         </GraphCard>
+
         <GraphCard>
-          <DoughnutChart />
+          <EmojiCard/>
         </GraphCard>
       </div>
     </div>

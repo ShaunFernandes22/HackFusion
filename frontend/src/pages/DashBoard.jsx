@@ -1,10 +1,10 @@
 import React from 'react'
-import Charts from '../components/Charts'
+import HistoryInfo from '../components/HistoryInfo'
 
 const DashBoard = () => {
   return (
     <>
-        <Charts/>
+        <HistoryInfo/>
         {/* <Tables/> */}
     </>
   )

@@ -1,6 +1,7 @@
 import React, {useEffect, useRef, useCallback} from 'react'
 import { useParams } from 'react-router-dom'
 import {ZegoUIKitPrebuilt} from '@zegocloud/zego-uikit-prebuilt'
+import Charts from '../../components/Charts';
 
 const RoomPage = () => {
     const {roomId} = useParams();
@@ -29,9 +30,12 @@ const RoomPage = () => {
     }, [myMeeting]);   
 
    return (
+   <>
     <div className = "top-0" style={{ width: '100%', height: '100vh',display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
         <div ref={videoContainerRef} style={{ width: '100%', height: '100vh' }} />
     </div>
+    <Charts/>
+   </>
   )
 }
 
