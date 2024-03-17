@@ -6,8 +6,13 @@ const NavItems = () => {
 
   const menuItems = isLoggedIn
     ? [
+      {
+        title: "Generate Meet",
+        path: "/generate-meet",
+        cName: "nav-links",
+      },
         {
-          title: "Generate Meet",
+          title: "Join Meet",
           path: "/meeting",
           cName: "nav-links",
         },

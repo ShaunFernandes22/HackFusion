@@ -14,7 +14,8 @@ const Signin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { setToken } = useContext(AuthContext);
-  const { setUser } = useContext(AuthContext);
+  const { user, setUser } = useContext(AuthContext);
+
   const navigate = useNavigate();
   const toast = useToast();
 
@@ -40,6 +41,8 @@ const Signin = () => {
         localStorage.setItem("token", response.data.token);
         setToken(response.data.token);
         setUser(response.data.user);
+        console.log("Response: ", response.data.user);
+        console.log("user variable ", user);
         toast.close(loadingToast);
         toast({
           title: "Signed in",

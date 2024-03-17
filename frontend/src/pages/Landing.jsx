@@ -15,7 +15,7 @@ const Landing = () => {
   return (
     <>
       <Hero />
-      {/* <Features /> */}
+      <Features />
       <OperateFlow />
 
       <Footer />
