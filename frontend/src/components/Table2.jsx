@@ -1,6 +1,7 @@
 import React from "react";
 import DataTable from "react-data-table-component";
 import { useState } from "react";
+import Badge from "react-bootstrap/Badge";
 const Table2 = () => {
   const columns = [
     {
@@ -8,12 +9,6 @@ const Table2 = () => {
       selector: (row) => row.name,
       sortable: true,
     },
-    // {
-    //   name: "Email",
-    //   selector: (row) => row.email,
-    //   sortable: true,
-    // },
-
     {
       name: "Role",
       selector: (row) => row.role,
@@ -21,7 +16,9 @@ const Table2 = () => {
     },
     {
       name: "Status",
-      selector: (row) => row.status,
+      selector: (row) => (
+        <Badge bg={getStatusColor(row.status)}>{row.status}</Badge>
+      ),
       sortable: true,
     },
   ];
@@ -43,7 +40,7 @@ const Table2 = () => {
       id: 3,
       name: "Hemant Singh",
       role: "Student",
-      status: "Boredom",
+      status: "Frustrated",
     },
 
     {
@@ -89,78 +86,66 @@ const Table2 = () => {
       status: "Boredom",
     },
   ];
+
   const [records, setRecords] = useState(data);
+
   const handleFilter = (event) => {
     const filterData = data.filter((row) => {
-      return row.name.toLowerCase().includes(event.target.value);
+      return row.name.toLowerCase().includes(event.target.value.toLowerCase());
     });
     setRecords(filterData);
   };
-
-  const tableStyles = {
-    width: '82vw',
-    height: '90vh',
-    backgroundColor: 'rgba(255, 255, 255, 0.95)',
-    backdropFilter: 'blur(7px)',
-    boxShadow: '0 .4rem .8rem rgba(0, 0, 0, 0.2)',
-    borderRadius: '.8rem',
-    overflow: 'hidden',
-  };
-
-  const headerStyles = {
-    width: '100%',
-    height: '10%',
-    backgroundColor: 'rgba(255, 255, 255, 0.8)',
-    padding: '.8rem 1rem',
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  };
-
-  const inputGroupStyles = {
-    width: '35%',
-    height: '100%',
-    backgroundColor: 'rgba(255, 255, 255, 0.9)',
-    padding: '0 .8rem',
-    borderRadius: '2rem',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    transition: '.2s',
-  };
-
-  const inputGroupHoverStyles = {
-    width: '45%',
-    backgroundColor: 'rgba(255, 255, 255, 0.95)',
-    boxShadow: '0 .1rem .4rem rgba(0, 0, 0, 0.05)',
-  };
-
-  const inputStyles = {
-    width: '100%',
-    padding: '0 .5rem 0 .3rem',
-    backgroundColor: 'transparent',
-    border: 'none',
-    outline: 'none',
+  const getStatusColor = (status) => {
+    const statusColors = {
+      Confused: "danger",
+      Engagement: "primary",
+      Frustrated: "warning",
+      Excited: "success",
+      Satisfaction: "info",
+      Boredom: "dark",
+    };
+    return statusColors[status] || "secondary";
   };
 
   return (
-    <div className="container mt-5">
-      <div className="text-end">
-        <input type="text " onChange={handleFilter}></input>
+    <div className="container mt-5 mx-auto p-4">
+      <div className="flex justify-between mb-4">
+        <div className="w-1/4">
+          <input
+            type="text"
+            onChange={handleFilter}
+            placeholder="Filter by name..."
+            className="border border-gray-300 rounded px-3 py-2 w-full focus:outline-none focus:ring focus:border-blue-500"
+          />
+        </div>
       </div>
-      <DataTable
-        columns={columns}
-        data={records}
-        selectableRows
-        fixedHeader
-        pagination
-        paginationPerPage={6}
-        highlightOnHover
-        striped
-        dense
-        responsive
-        noHeader
-      />
+      <div className="overflow-x-auto">
+        <DataTable
+          columns={columns}
+          data={records}
+          selectableRows
+          fixedHeader
+          pagination
+          paginationPerPage={6}
+          highlightOnHover
+          striped
+          dense
+          responsive
+          noHeader
+          customStyles={{
+            head: {
+              style: {
+                backgroundColor: "rgba(255, 255, 255, 0.8)",
+              },
+            },
+            rows: {
+              style: {
+                backgroundColor: "rgba(255, 255, 255, 0.95)",
+              },
+            },
+          }}
+        />
+      </div>
     </div>
   );
 };
